@@ -89,15 +89,15 @@ All in one place with role-based access control.
 
 ## 🚀 Live Demo
 
-🔗 **[Visit FestX](YOUR_NETLIFY_URL_HERE)**
+🔗 **[Visit FestX](https://festxv.netlify.app/)**
 
 ### Demo Credentials
 
 | Role | Email | Password |
 |------|-------|----------|
-| Admin | admin@festx.com | admin123 |
-| Organizer | organizer@festx.com | org123 |
-| Student | student@festx.com | student123 |
+| Admin | admin@gmail.com | @dmin@123 |
+| Organizer | vikram@gmail.com | P@ssword |
+| Student | student@gmail.com | Student@@123 |
 
 ---
 
