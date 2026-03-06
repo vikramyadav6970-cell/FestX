@@ -1,0 +1,305 @@
+{
+  "entities": {
+    "User": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "User",
+      "type": "object",
+      "description": "Represents a user of the FestX application, including students, organizers, and administrators.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the User entity."
+        },
+        "email": {
+          "type": "string",
+          "description": "Email address of the user.",
+          "format": "email"
+        },
+        "displayName": {
+          "type": "string",
+          "description": "Display name of the user."
+        },
+        "role": {
+          "type": "string",
+          "description": "Role of the user (e.g., 'student', 'organizer', 'admin')."
+        },
+        "rollNo": {
+          "type": "string",
+          "description": "Student roll number (if applicable to student role, otherwise null)."
+        },
+        "createdAt": {
+          "type": "string",
+          "description": "Timestamp when the user account was created.",
+          "format": "date-time"
+        },
+        "updatedAt": {
+          "type": "string",
+          "description": "Timestamp when the user account was last updated.",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "id",
+        "email",
+        "displayName",
+        "role",
+        "createdAt",
+        "updatedAt"
+      ]
+    },
+    "Event": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "Event",
+      "type": "object",
+      "description": "Represents a single event managed within the FestX system.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the Event entity."
+        },
+        "title": {
+          "type": "string",
+          "description": "Title of the event."
+        },
+        "description": {
+          "type": "string",
+          "description": "Detailed description of the event."
+        },
+        "organizerId": {
+          "type": "string",
+          "description": "Reference to the User (organizer) who created and manages this event. (Relationship: User 1:N Event)"
+        },
+        "startDate": {
+          "type": "string",
+          "description": "Start date and time of the event.",
+          "format": "date-time"
+        },
+        "endDate": {
+          "type": "string",
+          "description": "End date and time of the event.",
+          "format": "date-time"
+        },
+        "location": {
+          "type": "string",
+          "description": "Location where the event will take place."
+        },
+        "maxParticipants": {
+          "type": "number",
+          "description": "Maximum number of participants allowed for the event."
+        },
+        "status": {
+          "type": "string",
+          "description": "Current status of the event (e.g., 'upcoming', 'active', 'completed', 'cancelled')."
+        },
+        "registrationFee": {
+          "type": "number",
+          "description": "Registration fee for the event (0 for free events)."
+        },
+        "createdAt": {
+          "type": "string",
+          "description": "Timestamp when the event was created.",
+          "format": "date-time"
+        },
+        "updatedAt": {
+          "type": "string",
+          "description": "Timestamp when the event details were last updated.",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "id",
+        "title",
+        "description",
+        "organizerId",
+        "startDate",
+        "endDate",
+        "location",
+        "maxParticipants",
+        "status",
+        "registrationFee",
+        "createdAt",
+        "updatedAt"
+      ]
+    },
+    "Certificate": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "Certificate",
+      "type": "object",
+      "description": "Represents a digital certificate issued for a participant in an event.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the Certificate entity."
+        },
+        "eventId": {
+          "type": "string",
+          "description": "Reference to the Event for which the certificate was issued."
+        },
+        "eventTitle": {
+          "type": "string",
+          "description": "Title of the event."
+        },
+        "userId": {
+          "type": "string",
+          "description": "Reference to the student user who received the certificate."
+        },
+        "userName": {
+          "type": "string",
+          "description": "Name of the student."
+        },
+        "userEmail": {
+          "type": "string",
+          "description": "Email of the student.",
+          "format": "email"
+        },
+        "userRollNo": {
+          "type": "string",
+          "description": "Roll number of the student."
+        },
+        "templateId": {
+          "type": "string",
+          "description": "ID of the template used."
+        },
+        "issuedBy": {
+          "type": "string",
+          "description": "UID of the organizer who issued this."
+        },
+        "issuedByName": {
+          "type": "string",
+          "description": "Name of the issuer."
+        },
+        "issuedAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "verificationCode": {
+          "type": "string",
+          "description": "Public verification code."
+        },
+        "verificationUrl": {
+          "type": "string",
+          "format": "uri"
+        },
+        "qrCodeData": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string",
+          "enum": ["issued", "revoked"]
+        },
+        "downloadCount": {
+          "type": "number"
+        },
+        "lastDownloadedAt": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "id",
+        "eventId",
+        "userId",
+        "templateId",
+        "issuedBy",
+        "verificationCode",
+        "status"
+      ]
+    },
+    "CertificateTemplate": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "CertificateTemplate",
+      "type": "object",
+      "description": "Defines a reusable template for generating certificates.",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "eventId": {
+          "type": "string"
+        },
+        "organizerId": {
+          "type": "string"
+        },
+        "backgroundImage": {
+          "type": "string"
+        },
+        "backgroundColor": {
+          "type": "string"
+        },
+        "elements": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "organizerId",
+        "elements"
+      ]
+    }
+  },
+  "auth": {
+    "providers": [
+      "password",
+      "anonymous"
+    ]
+  },
+  "firestore": {
+    "structure": [
+      {
+        "path": "/users/{userId}",
+        "definition": {
+          "entityName": "User",
+          "schema": {
+            "$ref": "#/backend/entities/User"
+          },
+          "description": "User profiles, accessible by the user themselves and administrators."
+        }
+      },
+      {
+        "path": "/events/{eventId}",
+        "definition": {
+          "entityName": "Event",
+          "schema": {
+            "$ref": "#/backend/entities/Event"
+          },
+          "description": "Event details. Publicly readable, owner-writable."
+        }
+      },
+      {
+        "path": "/certificateTemplates/{templateId}",
+        "definition": {
+          "entityName": "CertificateTemplate",
+          "schema": {
+            "$ref": "#/backend/entities/CertificateTemplate"
+          },
+          "description": "Templates created by organizers for issuing certificates."
+        }
+      },
+      {
+        "path": "/certificates/{certificateId}",
+        "definition": {
+          "entityName": "Certificate",
+          "schema": {
+            "$ref": "#/backend/entities/Certificate"
+          },
+          "description": "Issued digital certificates. Publicly verifiable via code."
+        }
+      }
+    ]
+  }
+}

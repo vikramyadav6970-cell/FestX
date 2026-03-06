@@ -1,0 +1,135 @@
+rules_version = '2';
+
+service cloud.firestore {
+
+match /databases/{database}/documents {
+
+// Helper function: Check if user is logged in
+function isAuthenticated() {
+  return request.auth != null;
+}
+
+// Helper function: Check if user owns the document
+function isOwner(userId) {
+  return request.auth.uid == userId;
+}
+
+// Helper function: Get user's role from their profile
+function getUserRole() {
+  return get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role;
+}
+
+// Helper function: Check if user is admin
+function isAdmin() {
+  return isAuthenticated() && getUserRole() == 'admin';
+}
+
+// Helper function: Check if user is organizer
+function isOrganizer() {
+  return isAuthenticated() && getUserRole() == 'organizer';
+}
+
+// Helper function: Check if user is student
+function isStudent() {
+  return isAuthenticated() && getUserRole() == 'student';
+}
+
+// ============================================
+// USERS COLLECTION
+// ============================================
+match /users/{userId} {
+  allow read: if isAuthenticated();
+  allow create: if isAuthenticated() && isOwner(userId);
+  allow update: if isOwner(userId) || isAdmin();
+  allow delete: if isAdmin();
+}
+
+// ============================================
+// EVENTS COLLECTION
+// ============================================
+match /events/{eventId} {
+  allow read: if isAuthenticated();
+  allow create: if isOrganizer() || isAdmin();
+  allow update: if isAdmin() || 
+    (isAuthenticated() && resource.data.organizerId == request.auth.uid);
+  allow delete: if isAdmin();
+}
+
+// ============================================
+// REGISTRATIONS COLLECTION
+// ============================================
+match /registrations/{registrationId} {
+  allow read: if isAuthenticated();
+  allow create: if isAuthenticated();
+  allow update: if isAuthenticated();
+  allow delete: if isAdmin();
+}
+
+// ============================================
+// NOTIFICATIONS COLLECTION
+// ============================================
+match /notifications/{notificationId} {
+  allow read: if isAuthenticated();
+  allow create: if isOrganizer() || isAdmin();
+  allow update: if isAuthenticated();
+  allow delete: if isAdmin();
+}
+
+// ============================================
+// VOLUNTEERS COLLECTION
+// ============================================
+match /volunteers/{volunteerId} {
+  allow read: if isAuthenticated();
+  allow create, update, delete: if isOrganizer() || isAdmin();
+}
+
+// ============================================
+// APPROVAL REQUESTS COLLECTION
+// ============================================
+match /approvalRequests/{requestId} {
+  allow read: if isAdmin() || 
+    (isAuthenticated() && (resource == null || resource.data.requesterId == request.auth.uid));
+  allow create: if isAuthenticated();
+  allow update: if isAdmin();
+  allow delete: if isAdmin();
+}
+
+// ============================================
+// BUDGETS COLLECTION
+// ============================================
+match /budgets/{budgetId} {
+  allow read: if isAuthenticated();
+  allow create, update: if isOrganizer() || isAdmin();
+  allow delete: if isAdmin();
+}
+
+// ============================================
+// CERTIFICATE TEMPLATES COLLECTION
+// ============================================
+match /certificateTemplates/{templateId} {
+  allow read: if isAuthenticated();
+  allow create, update: if isOrganizer() || isAdmin();
+  allow delete: if isAdmin();
+}
+
+// ============================================
+// CERTIFICATES COLLECTION
+// ============================================
+match /certificates/{certificateId} {
+  // Publicly verifiable by code (get and list needed for verification queries)
+  allow get: if true;
+  allow list: if true;
+  
+  allow create: if isOrganizer() || isAdmin();
+  // Allow students to update download counts on their own certificates
+  allow update: if isOrganizer() || isAdmin() || (isAuthenticated() && isOwner(resource.data.userId));
+  allow delete: if isAdmin();
+}
+
+// Fallback
+match /{path=**} {
+  allow read, write: if false;
+}
+
+}
+}

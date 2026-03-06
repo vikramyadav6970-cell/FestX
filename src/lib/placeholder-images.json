@@ -1,0 +1,64 @@
+{
+  "placeholderImages": [
+    {
+      "id": "landing-hero",
+      "description": "A vibrant college festival with students cheering.",
+      "imageUrl": "https://images.unsplash.com/photo-1506711766036-e8032c1767ca?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8Y29sbGVnZSUyMGZlc3RpdmFsfGVufDB8fHx8MTc2NTQ3Njc4N3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "college festival"
+    },
+    {
+      "id": "feature-1",
+      "description": "Students collaborating at a hackathon.",
+      "imageUrl": "https://images.unsplash.com/photo-1526253038957-bce54e05968e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxzdHVkZW50cyUyMGNvZGluZ3xlbnwwfHx8fDE3NjUzNTA2MTF8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "students coding"
+    },
+    {
+      "id": "feature-2",
+      "description": "A student art exhibition.",
+      "imageUrl": "https://images.unsplash.com/photo-1503293050619-6048ffad0dc5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxhcnQlMjBleGhpYml0aW9ufGVufDB8fHx8MTc2NTQ3MTIyMXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "art exhibition"
+    },
+    {
+      "id": "feature-3",
+      "description": "A college band performing on stage.",
+      "imageUrl": "https://images.unsplash.com/photo-1684679106461-dae134df8da6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxiYW5kJTIwY29uY2VydHxlbnwwfHx8fDE3NjU0NTI3MTR8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "band concert"
+    },
+    {
+      "id": "event-1",
+      "description": "Annual tech conference poster.",
+      "imageUrl": "https://images.unsplash.com/photo-1582192493926-93f4847e1323?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHx0ZWNoJTIwY29uZmVyZW5jZXxlbnwwfHx8fDE3NjU0NDYzMDR8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "tech conference"
+    },
+    {
+      "id": "event-2",
+      "description": "Spring music festival poster.",
+      "imageUrl": "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxtdXNpYyUyMGZlc3RpdmFsfGVufDB8fHx8MTc2NTQ1OTY5OXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "music festival"
+    },
+    {
+      "id": "event-3",
+      "description": "Inter-college sports meet poster.",
+      "imageUrl": "https://images.unsplash.com/photo-1705594858888-90d164689257?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxzcG9ydHMlMjBjb21wZXRpdGlvbnxlbnwwfHx8fDE3NjU0NDYzNjh8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "sports competition"
+    },
+    {
+      "id": "event-4",
+      "description": "Cultural night poster.",
+      "imageUrl": "https://images.unsplash.com/photo-1693473812472-a9f1887a6b2d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxjdWx0dXJhbCUyMGV2ZW50fGVufDB8fHx8MTc2NTQ3Njc4N3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "cultural event"
+    },
+    {
+      "id": "event-5",
+      "description": "Entrepreneurship summit poster",
+      "imageUrl": "https://images.unsplash.com/photo-1654608996535-068c6bbff7f5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxidXNpbmVzcyUyMHN1bW1pdHxlbnwwfHx8fDE3NjU0NDk4NjZ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "business summit"
+    },
+    {
+      "id": "event-6",
+      "description": "Film screening event poster",
+      "imageUrl": "https://images.unsplash.com/photo-1518930259200-3e5b29f42096?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxmaWxtJTIwZmVzdGl2YWx8ZW58MHx8fHwxNzY1NDc2Nzg3fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "film festival"
+    }
+  ]
+}
