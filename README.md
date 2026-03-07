@@ -4,14 +4,14 @@
 
 ![FestX Banner](https://img.shields.io/badge/FestX-Event%20Management-6366f1?style=for-the-badge&logo=react&logoColor=white)
 
-[![Live Demo](https://img.shields.io/badge/🚀%20Live%20Demo-Netlify-00C7B7?style=for-the-badge)](YOUR_NETLIFY_URL_HERE)
+[![Live Demo](https://img.shields.io/badge/🚀%20Live%20Demo-Netlify-00C7B7?style=for-the-badge)](https://festxv.netlify.app/)
 [![Made with React](https://img.shields.io/badge/Made%20with-React-61DAFB?style=flat-square&logo=react)](https://reactjs.org/)
 [![Firebase](https://img.shields.io/badge/Backend-Firebase-FFCA28?style=flat-square&logo=firebase)](https://firebase.google.com/)
 [![Tailwind CSS](https://img.shields.io/badge/Styled%20with-Tailwind%20CSS-38B2AC?style=flat-square&logo=tailwind-css)](https://tailwindcss.com/)
 
 **Built at HackStrom 2025 by Team VEDABYTE**
 
-[Live Demo](YOUR_NETLIFY_URL) • [Report Bug](https://github.com/vikramyadav6970-cell/FestX/issues) • [Request Feature](https://github.com/vikramyadav6970-cell/FestX/issues)
+[Live Demo](https://festxv.netlify.app/) • [Report Bug](https://github.com/vikramyadav6970-cell/FestX/issues) • [Request Feature](https://github.com/vikramyadav6970-cell/FestX/issues)
 
 </div>
 
