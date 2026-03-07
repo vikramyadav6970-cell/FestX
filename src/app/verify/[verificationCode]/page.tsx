@@ -127,7 +127,7 @@ export default function VerifyCertificatePage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-indigo-950 to-slate-900 flex flex-col items-center justify-center p-4">
+    <div className="min-h-screen bg-background text-foreground flex flex-col items-center justify-center p-4">
       <div className="max-w-lg w-full">
         
         {/* Logo */}
@@ -138,18 +138,18 @@ export default function VerifyCertificatePage() {
         </div>
 
         {/* Verification Card */}
-        <div className="bg-white dark:bg-slate-800 rounded-2xl shadow-2xl overflow-hidden border border-white/10">
+        <div className="bg-card text-card-foreground rounded-2xl shadow-2xl overflow-hidden border border-border">
           
-          <div ref={printRef} className="bg-white dark:bg-slate-800">
+          <div ref={printRef} className="bg-card">
             {/* Status Header */}
             <div className={`p-6 text-white text-center transition-colors duration-500 ${
-              loading ? 'bg-slate-700' :
+              loading ? 'bg-muted' :
               certificate ? 'bg-gradient-to-r from-green-500 to-emerald-600' :
               'bg-gradient-to-r from-red-500 to-rose-600'
             }`}>
               <div className="flex flex-col items-center justify-center gap-2">
                 {loading ? (
-                  <Loader2 className="w-10 h-10 animate-spin" />
+                  <Loader2 className="w-10 h-10 animate-spin text-muted-foreground" />
                 ) : certificate ? (
                   <ShieldCheck className="w-10 h-10" />
                 ) : (
@@ -183,13 +183,13 @@ export default function VerifyCertificatePage() {
 
                   {/* Details Grid */}
                   <div className="grid gap-4">
-                    <div className="flex items-start gap-4 p-4 bg-slate-50 dark:bg-slate-700/50 rounded-xl border border-slate-100 dark:border-slate-600">
+                    <div className="flex items-start gap-4 p-4 bg-muted/50 rounded-xl border border-border">
                       <div className="p-2 bg-indigo-100 dark:bg-indigo-900/30 rounded-lg text-indigo-600 dark:text-indigo-400">
                         <User className="w-5 h-5" />
                       </div>
                       <div>
                         <p className="text-xs uppercase tracking-wider text-muted-foreground font-semibold">Issued To</p>
-                        <p className="font-bold text-slate-900 dark:text-white text-lg">
+                        <p className="font-bold text-foreground text-lg">
                           {certificate.userName}
                         </p>
                         <p className="text-sm text-muted-foreground">{certificate.userEmail}</p>
@@ -199,29 +199,29 @@ export default function VerifyCertificatePage() {
                       </div>
                     </div>
 
-                    <div className="flex items-start gap-4 p-4 bg-slate-50 dark:bg-slate-700/50 rounded-xl border border-slate-100 dark:border-slate-600">
+                    <div className="flex items-start gap-4 p-4 bg-muted/50 rounded-xl border border-border">
                       <div className="p-2 bg-indigo-100 dark:bg-indigo-900/30 rounded-lg text-indigo-600 dark:text-indigo-400">
                         <Award className="w-5 h-5" />
                       </div>
                       <div>
                         <p className="text-xs uppercase tracking-wider text-muted-foreground font-semibold">Achievement</p>
-                        <p className="font-bold text-slate-900 dark:text-white text-lg">
+                        <p className="font-bold text-foreground text-lg">
                           {certificate.eventTitle}
                         </p>
                       </div>
                     </div>
 
                     <div className="grid grid-cols-2 gap-4">
-                      <div className="p-4 bg-slate-50 dark:bg-slate-700/50 rounded-xl border border-slate-100 dark:border-slate-600">
+                      <div className="p-4 bg-muted/50 rounded-xl border border-border">
                         <p className="text-xs uppercase tracking-wider text-muted-foreground font-semibold mb-1">Date</p>
-                        <div className="flex items-center gap-2 font-semibold text-slate-900 dark:text-white">
+                        <div className="flex items-center gap-2 font-semibold text-foreground">
                           <Calendar className="w-4 h-4 text-indigo-500" />
                           {formatDate(certificate.issuedAt)}
                         </div>
                       </div>
-                      <div className="p-4 bg-slate-50 dark:bg-slate-700/50 rounded-xl border border-slate-100 dark:border-slate-600">
+                      <div className="p-4 bg-muted/50 rounded-xl border border-border">
                         <p className="text-xs uppercase tracking-wider text-muted-foreground font-semibold mb-1">Issuer</p>
-                        <div className="flex items-center gap-2 font-semibold text-slate-900 dark:text-white">
+                        <div className="flex items-center gap-2 font-semibold text-foreground">
                           <Building className="w-4 h-4 text-indigo-500" />
                           {certificate.issuedByName}
                         </div>
@@ -230,7 +230,7 @@ export default function VerifyCertificatePage() {
                   </div>
 
                   {/* Secure ID */}
-                  <div className="text-center pt-6 border-t border-slate-200 dark:border-slate-700">
+                  <div className="text-center pt-6 border-t border-border">
                     <p className="text-xs uppercase tracking-wider text-muted-foreground font-bold mb-2">Digital ID</p>
                     <p className="font-mono text-xs text-indigo-600 dark:text-indigo-400 bg-indigo-50 dark:bg-indigo-950/50 px-4 py-2 rounded-full inline-block border border-indigo-100 dark:border-indigo-900">
                       {certificate.verificationCode}
@@ -240,14 +240,14 @@ export default function VerifyCertificatePage() {
                 </div>
               ) : (
                 <div className="text-center py-12">
-                  <div className="w-20 h-20 bg-red-100 dark:bg-red-900/20 rounded-full flex items-center justify-center mx-auto mb-6">
-                    <AlertTriangle className="w-10 h-10 text-red-500" />
+                  <div className="w-20 h-20 bg-destructive/10 rounded-full flex items-center justify-center mx-auto mb-6">
+                    <AlertTriangle className="w-10 h-10 text-destructive" />
                   </div>
-                  <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-3">
+                  <h2 className="text-2xl font-bold text-foreground mb-3">
                     Invalid Record
                   </h2>
                   <p className="text-muted-foreground mb-8">
-                    The verification code <span className="font-mono text-red-500">"{verificationCode}"</span> does not correspond to a valid record.
+                    The verification code <span className="font-mono text-destructive">"{verificationCode}"</span> does not correspond to a valid record.
                   </p>
                 </div>
               )}
@@ -255,7 +255,7 @@ export default function VerifyCertificatePage() {
           </div>
 
           {/* Action Footer */}
-          <div className="px-8 py-6 bg-slate-50 dark:bg-slate-700/50 border-t border-slate-200 dark:border-slate-700">
+          <div className="px-8 py-6 bg-muted/30 border-t border-border">
             <div className="grid grid-cols-2 gap-3">
               {certificate && (
                 <Button 
@@ -291,7 +291,7 @@ export default function VerifyCertificatePage() {
         </div>
 
         {/* Footer Credits */}
-        <p className="text-center text-slate-400 text-xs mt-8 font-medium">
+        <p className="text-center text-muted-foreground text-xs mt-8 font-medium">
           FestX Engine &bull; © {new Date().getFullYear()}
         </p>
       </div>
