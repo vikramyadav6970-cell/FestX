@@ -94,7 +94,10 @@ export default function VerifyCertificatePage() {
         scale: 2,
         useCORS: true,
         logging: false,
-        backgroundColor: '#ffffff'
+        backgroundColor: '#ffffff',
+        // Ensure we capture the full scroll height
+        windowWidth: element.scrollWidth,
+        windowHeight: element.scrollHeight,
       });
 
       const imgData = canvas.toDataURL('image/png');
@@ -140,7 +143,8 @@ export default function VerifyCertificatePage() {
         {/* Verification Card */}
         <div className="bg-card text-card-foreground rounded-2xl shadow-2xl overflow-hidden border border-border">
           
-          <div ref={printRef} className="bg-card">
+          {/* We wrap the content in a div with print-specific padding to avoid cut-off */}
+          <div ref={printRef} className="bg-card pb-12">
             {/* Status Header */}
             <div className={`p-6 text-white text-center transition-colors duration-500 ${
               loading ? 'bg-muted' :
@@ -254,7 +258,7 @@ export default function VerifyCertificatePage() {
             </div>
           </div>
 
-          {/* Action Footer */}
+          {/* Action Footer - Not captured in PDF */}
           <div className="px-8 py-6 bg-muted/30 border-t border-border">
             <div className="grid grid-cols-2 gap-3">
               {certificate && (
