@@ -95,8 +95,8 @@ All in one place with role-based access control.
 
 | Role | Email | Password |
 |------|-------|----------|
-| Admin | admin@festx.com | admin123 |
-| Organizer | organizer@festx.com | org123 |
+| Admin | admin@gmail.com.com | @dmin@123 |
+| Organizer | vikram@gmail.com | P@ssword |
 | Student | student@festx.com | student123 |
 
 ---
